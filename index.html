@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Tyson</title>
+    <title>Product Catalog</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,9 +13,12 @@
         }
         .search-container {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
         #searchInput {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             padding: 10px;
             font-size: 16px;
         }
@@ -54,15 +57,36 @@
             margin: 0 5px;
             cursor: pointer;
         }
-        a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: none;
-}
+        a {
+            color: inherit;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 767px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .product-card {
+                padding: 10px;
+            }
+            .product-card img {
+                height: 150px;
+            }
+            .product-card h3 {
+                font-size: 14px;
+            }
+            .pagination button {
+                padding: 3px 6px;
+                margin: 0 2px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="search-container" style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search by product number or name">
     </div>
     <div id="productGrid" class="product-grid"></div>
